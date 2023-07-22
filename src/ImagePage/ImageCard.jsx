@@ -2,10 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const ImageCard = ({ image, comments, setReadingMode, readingMode }) => {
   return (
-    <div className=" flex flex-col max-w-full min-h-screen items-center px-4">
-      <Link to={'/'} className="flex w-full text-left">
-        Go Back
-      </Link>
+    <div className=" flex flex-col max-w-full items-center px-4">
       <div className="flex flex-col  ">
         <div className="flex flex-col  mt-5 md:mt-4 lg:mt-4 max-w-[600px] items-center">
           <h1 className="text-2xl mb-5"> {image.common_name} </h1>

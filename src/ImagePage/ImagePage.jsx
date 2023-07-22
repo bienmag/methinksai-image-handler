@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { WritingComments, ReadingComments, ImageReadingComments } from './CommentsStates';
 import { ImageCard } from './ImageCard';
 
@@ -44,6 +44,9 @@ function ImagePage({ images }) {
     <div> Loading......</div>
   ) : (
     <div>
+      <Link to={'/'} className="absolute flex w-full h-[46px] items-center pt-4 pl-4">
+        Go Back
+      </Link>
       {readingMode && (
         <>
           <ImageReadingComments
@@ -61,12 +64,14 @@ function ImagePage({ images }) {
       )}
 
       {!readingMode && (
-        <ImageCard
-          image={image}
-          comments={comments}
-          setReadingMode={setReadingMode}
-          readingMode={readingMode}
-        ></ImageCard>
+        <div className="h-screen flex items-center justify-center ">
+          <ImageCard
+            image={image}
+            comments={comments}
+            setReadingMode={setReadingMode}
+            readingMode={readingMode}
+          ></ImageCard>
+        </div>
       )}
 
       {writingMode && (

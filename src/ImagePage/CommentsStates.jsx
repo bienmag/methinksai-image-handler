@@ -6,12 +6,17 @@ export const ImageReadingComments = ({ image, setReadingMode, readingMode }) => 
       onClick={() => {
         setReadingMode(!readingMode);
       }}
-      className="opacity-30 flex flex-col max-w-full items-center p-5"
+      className="opacity-30 flex flex-col h-screen  justify-center max-w-full items-center p-4"
     >
       <div className="flex flex-col max-w-[600px]">
         <div className="flex flex-col mt-5 md:mt-4 lg:mt-4 items-center">
           <h1 className="text-2xl mb-5"> {image.common_name} </h1>
           <img src={`${image.default_image.regular_url}`} alt="image of a tree"></img>
+        </div>
+        <div className="flex justify-end ">
+          <div className="items-center flex justify-between px-8 mt-4 text-xs bg-myborder w-28 py-2  rounded-full border border-my2 hover:bg-my2 ">
+            add
+          </div>
         </div>
       </div>
     </div>
@@ -21,13 +26,13 @@ export const ImageReadingComments = ({ image, setReadingMode, readingMode }) => 
 export const ReadingComments = ({ setWritingMode, writingMode, comments, comment }) => {
   return (
     <div className="border rounded-xl border-myinputborder flex flex-col-reverse  bg-my1  w-full h-1/2 absolute bottom-0 pb-2  ">
-      <div className=" flex justify-center my-2 ">
+      <div className=" flex justify-center my-2 px-2 ">
         <input
           readOnly
           onClick={() => {
             setWritingMode(!writingMode);
           }}
-          className=" border-2 border-my3 focus:border-my4 rounded-full  mr-2  w-3/4  px-4 "
+          className=" border-2 border-my3 focus:border-my4 rounded-full  mr-2  w-3/4 px-4 "
           value={comment}
           type="text"
           placeholder="add a comment"

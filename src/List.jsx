@@ -17,7 +17,7 @@ function ListItem({ image }) {
 
 function List({ images }) {
   return (
-    <>
+    <div className="pt-[46px]">
       {images.length === 0 ? (
         <div className="h-screen flex justify-center items-center">Loading... </div>
       ) : (
@@ -31,7 +31,7 @@ function List({ images }) {
           <div className="py-8">{images.length} files</div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
