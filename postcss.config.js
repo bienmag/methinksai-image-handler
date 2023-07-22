@@ -1,6 +1,6 @@
 export default {
-  from: "src/styles/App.css",
-  to: "src/styles/output.css",
+  from: 'src/styles/App.css',
+  to: 'src/styles/output.css',
   plugins: {
     tailwindcss: {},
     autoprefixer: {},

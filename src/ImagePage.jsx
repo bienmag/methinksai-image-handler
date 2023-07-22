@@ -1,7 +1,4 @@
-function ImagePage ()
-{
-  return (
-    <div> Image page</div>
-  )
+function ImagePage() {
+  return <div> Image page</div>;
 }
-export default ImagePage
+export default ImagePage;
