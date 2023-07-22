@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import ImagePage from './ImagePage/ImagePage';
 import sun from './assets/sun.png';
 import moon from './assets/moon1.png';
+import { ThemeContext } from './utils/context';
 function App() {
   const [images, setImages] = useState([]);
   const [mode, setMode] = useState('light');
@@ -24,7 +25,7 @@ function App() {
     document.documentElement.setAttribute('data-theme', mode);
   }, [mode]);
   return (
-    <>
+    <ThemeContext.Provider value={mode}>
       <div className="absolute w-full flex justify-end pt-4 pr-4">
         {mode === 'light' ? (
           <img
@@ -48,7 +49,7 @@ function App() {
         <Route path="/" element={<List images={images} />}></Route>
         <Route path="image/:id" element={<ImagePage images={images} />}></Route>
       </Routes>
-    </>
+    </ThemeContext.Provider>
   );
 }
 

@@ -1,6 +1,11 @@
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { ThemeContext } from '../utils/context';
+import commentLight from '../assets/comment-light.png';
+import commentDark from '../assets/comment-dark.png';
 
 export const ImageCard = ({ image, comments, setReadingMode, readingMode }) => {
+  const theme = useContext(ThemeContext);
+
   return (
     <div className=" flex flex-col max-w-full items-center px-4">
       <div className="flex flex-col  ">
@@ -15,7 +20,12 @@ export const ImageCard = ({ image, comments, setReadingMode, readingMode }) => {
               setReadingMode(!readingMode);
             }}
           >
-            add
+            {theme === 'dark' ? (
+              <img height={20} width={20} src={commentLight}></img>
+            ) : (
+              <img height={20} width={20} src={commentDark}></img>
+            )}
+
             {comments.length}
           </div>
         </div>

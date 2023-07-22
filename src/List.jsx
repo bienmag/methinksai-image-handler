@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 function ListItem({ image }) {
   return (
     <Link className="hover:bg-my2" to={`/image/${image.id}`}>
