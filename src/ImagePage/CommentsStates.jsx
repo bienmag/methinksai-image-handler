@@ -52,6 +52,7 @@ export const ReadingComments = ({ setWritingMode, writingMode, comments, comment
 };
 
 export const WritingComments = ({
+  commentsContainerRef,
   closeComments,
   comments,
   handleEnterKey,
@@ -82,7 +83,7 @@ export const WritingComments = ({
           Send
         </button>
       </div>
-      <div className=" overflow-auto mt-12">
+      <div className=" overflow-auto mt-12" ref={commentsContainerRef}>
         {comments.length > 0 ? <CommentsList comments={comments} /> : <></>}
       </div>
       <div className="flex justify-between  w-screen px-4 h-12 absolute top-0">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { WritingComments, ReadingComments, ImageReadingComments } from './CommentsStates';
 import { ImageCard } from './ImageCard';
@@ -9,7 +9,15 @@ function ImagePage({ images }) {
   const [comments, setComments] = useState([]);
   const [readingMode, setReadingMode] = useState(false);
   const [writingMode, setWritingMode] = useState(false);
+  const commentsContainerRef = useRef(null);
+
   const image = images.find((item) => item.id == id);
+
+  useEffect(() => {
+    if (commentsContainerRef.current) {
+      commentsContainerRef.current.scrollTop = commentsContainerRef.current.scrollHeight;
+    }
+  }, [comments]);
 
   function handleSubmitComment() {
     if (comment.trim() !== '') {
@@ -40,6 +48,7 @@ function ImagePage({ images }) {
     setReadingMode(!readingMode);
     setWritingMode(!writingMode);
   }
+
   return !image ? (
     <div className="h-screen flex justify-center items-center"> Loading......</div>
   ) : (
@@ -76,6 +85,7 @@ function ImagePage({ images }) {
 
       {writingMode && (
         <WritingComments
+          commentsContainerRef={commentsContainerRef}
           closeComments={closeComments}
           comment={comment}
           comments={comments}
