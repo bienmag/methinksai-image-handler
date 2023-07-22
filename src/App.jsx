@@ -13,7 +13,6 @@ function App() {
     });
   }, []);
 
-  console.log('images from app', images);
   return (
     <>
       <Routes>

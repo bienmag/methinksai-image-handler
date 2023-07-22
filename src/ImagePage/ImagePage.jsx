@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { WritingComments, ReadingComments } from './CommentsStates';
+import { WritingComments, ReadingComments, ImageReadingComments } from './CommentsStates';
 import { ImageCard } from './ImageCard';
 
 function ImagePage({ images }) {
@@ -40,20 +40,24 @@ function ImagePage({ images }) {
     setReadingMode(!readingMode);
     setWritingMode(!writingMode);
   }
-
-  console.log('readingMode', readingMode);
-
   return !image ? (
     <div> Loading......</div>
   ) : (
     <div>
       {readingMode && (
-        <ReadingComments
-          comments={comments}
-          comment={comment}
-          setWritingMode={setWritingMode}
-          writingMode={writingMode}
-        ></ReadingComments>
+        <>
+          <ImageReadingComments
+            setReadingMode={setReadingMode}
+            readingMode={readingMode}
+            image={image}
+          ></ImageReadingComments>
+          <ReadingComments
+            comments={comments}
+            comment={comment}
+            setWritingMode={setWritingMode}
+            writingMode={writingMode}
+          ></ReadingComments>
+        </>
       )}
 
       {!readingMode && (
