@@ -13,13 +13,12 @@ function App() {
     });
   }, []);
 
+  console.log('images from app', images);
   return (
     <>
       <Routes>
-        <Route path="/" element={<List images={images} />}>
-          {' '}
-        </Route>
-        <Route path="image/:id" element={<ImagePage />}></Route>
+        <Route path="/" element={<List images={images} />}></Route>
+        <Route path="image/:id" element={<ImagePage images={images} />}></Route>
       </Routes>
     </>
   );

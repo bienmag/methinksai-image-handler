@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom';
 function ListItem({ image }) {
   return (
-    <a href={`/image/${image.id}`}>
+    <Link to={`/image/${image.id}`}>
       <div>
         <h1>{image.common_name}</h1>
         <p>id: {image.id}</p>
       </div>
-    </a>
+    </Link>
   );
 }
 
