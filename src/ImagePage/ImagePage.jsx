@@ -41,7 +41,7 @@ function ImagePage({ images }) {
     setWritingMode(!writingMode);
   }
   return !image ? (
-    <div> Loading......</div>
+    <div className="h-screen flex justify-center items-center"> Loading......</div>
   ) : (
     <div>
       <Link to={'/'} className="absolute flex h-[46px] items-center pt-4 pl-4">

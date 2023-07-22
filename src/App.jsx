@@ -29,6 +29,7 @@ function App() {
     document.documentElement.setAttribute('data-theme', mode);
     localStorage.setItem('theme', mode);
   }, [mode]);
+
   return (
     <ThemeContext.Provider value={mode}>
       <div className="absolute w-full flex justify-end pt-4 pr-4">
