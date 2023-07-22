@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import API from './utils/api'
 import List from './List'
+import { Routes, Route } from 'react-router-dom'
+import ImagePage from './ImagePage'
 function App ()
 {
 
@@ -17,7 +19,10 @@ function App ()
 
   return (
     <>
-      <List images={ images }></List>
+      <Routes>
+        <Route path='/' element={ <List images={ images } /> }> </Route>
+        <Route path='image/:id' element={ <ImagePage /> }></Route>
+      </Routes >
     </>
   )
 }
