@@ -44,7 +44,7 @@ function ImagePage({ images }) {
     <div> Loading......</div>
   ) : (
     <div>
-      <Link to={'/'} className="absolute flex w-full h-[46px] items-center pt-4 pl-4">
+      <Link to={'/'} className="absolute flex h-[46px] items-center pt-4 pl-4">
         Go Back
       </Link>
       {readingMode && (
