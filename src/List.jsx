@@ -23,7 +23,7 @@ function List({ images }) {
       ) : (
         <div className="flex flex-col text-center">
           <h2 className="py-8 font-bold">OVER 10,000+ SPECIES OF PLANTS AVAILABLE</h2>
-          <div>
+          <div className="flex flex-col">
             {images.map((image) => (
               <ListItem key={image.id} image={image}></ListItem>
             ))}
