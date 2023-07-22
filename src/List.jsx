@@ -20,7 +20,7 @@ function List({ images }) {
           <h2>OVER 10,000+ SPECIES OF PLANTS AVAILABLE</h2>
           <div>
             {images.map((image) => (
-              <ListItem image={image}></ListItem>
+              <ListItem key={image.id} image={image}></ListItem>
             ))}
           </div>
           <div>{images.length} files</div>

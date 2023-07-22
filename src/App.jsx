@@ -3,7 +3,7 @@ import './App.css';
 import API from './utils/api';
 import List from './List';
 import { Routes, Route } from 'react-router-dom';
-import ImagePage from './ImagePage';
+import ImagePage from './ImagePage/ImagePage';
 function App() {
   const [images, setImages] = useState([]);
 
