@@ -17,12 +17,17 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    localStorage.getItem('theme') ? setMode(localStorage.getItem('theme')) : setMode('light');
+  }, []);
+
   function toggleMode() {
     setMode(mode === 'light' ? 'dark' : 'light');
   }
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
+    localStorage.setItem('theme', mode);
   }, [mode]);
   return (
     <ThemeContext.Provider value={mode}>
