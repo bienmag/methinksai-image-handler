@@ -62,6 +62,7 @@ export const WritingComments = ({
     >
       <div className="flex justify-center my-2 px-2 ">
         <input
+          autoFocus
           className="border-2 border-my3 focus:border-my4 rounded-full bg-my2 mr-2  w-3/4  px-4 "
           onKeyDown={handleEnterKey}
           value={comment}
