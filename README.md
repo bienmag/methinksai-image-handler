@@ -1,8 +1,10 @@
-# React + Vite
+#Frontend Engineer Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The challenge consists of the design, implementation and deployment of a web-based image handler.
+The web application should have:
+- A web page to view a list of all uploaded images (only the id and name should be
+shown here, not the actual image) with a link to open the image.
+- A web page to view a specific image (the actual image should be shown).
+- In the web page for a specific image, the user should be able to add comments and
+store them without reloading the whole page.
+- Responsive layouts.
