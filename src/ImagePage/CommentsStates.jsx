@@ -46,7 +46,11 @@ export const ReadingComments = ({ setWritingMode, writingMode, comments, comment
         {comments.length > 0 ? <CommentsList comments={comments} /> : <></>}
       </div>
       <div className=" flex pl-4 h-12 absolute top-0">
-        <p className="flex items-center">{comments.length} comments</p>
+        {comments.length === 1 ? (
+          <p className="flex items-center">{comments.length} comment</p>
+        ) : (
+          <p className="flex items-center">{comments.length} comments</p>
+        )}{' '}
       </div>
     </div>
   );
@@ -94,7 +98,11 @@ export const WritingComments = ({
         )}
       </div>
       <div className="flex justify-between  w-screen px-4 h-12 absolute top-0">
-        <p className="flex items-center">{comments.length} comments</p>
+        {comments.length === 1 ? (
+          <p className="flex items-center">{comments.length} comment</p>
+        ) : (
+          <p className="flex items-center">{comments.length} comments</p>
+        )}
         <button className="flex items-center" onClick={handleX}>
           x
         </button>
