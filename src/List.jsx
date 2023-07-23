@@ -22,7 +22,7 @@ function List({ images }) {
       {images.length === 0 ? (
         <div className="h-screen flex justify-center items-center">Loading... </div>
       ) : (
-        <div className="flex flex-col text-center mx-2">
+        <div className="flex flex-col text-center">
           <h2 className="py-8 text-2xl font-semibold">OVER 10,000+ SPECIES OF PLANTS AVAILABLE</h2>
           <div className="flex flex-col">
             {images.map((image) => (
