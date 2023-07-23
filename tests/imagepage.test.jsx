@@ -97,4 +97,7 @@ describe('ImagePage', () => {
     });
     expect(writingComemntsElement).toBeInTheDocument();
   });
+
+  // should not render readingmode if readingMOde is false
+  // should not render writingmode if writingMode is false
 });

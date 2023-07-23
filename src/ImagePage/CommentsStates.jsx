@@ -85,7 +85,13 @@ export const WritingComments = ({
         </button>
       </div>
       <div className=" overflow-auto mt-12" ref={commentsContainerRef}>
-        {comments.length > 0 ? <CommentsList comments={comments} /> : <></>}
+        {comments.length > 0 ? (
+          <div data-testid="comments-list">
+            <CommentsList comments={comments} />
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="flex justify-between  w-screen px-4 h-12 absolute top-0">
         <p className="flex items-center">{comments.length} comments</p>
