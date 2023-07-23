@@ -28,6 +28,7 @@ export const ReadingComments = ({ setWritingMode, writingMode, comments, comment
     <div className="border rounded-xl border-myinputborder flex flex-col-reverse  bg-my1  w-full h-1/2 absolute bottom-0 pb-2  ">
       <div className=" flex justify-center my-2 px-2 ">
         <input
+          data-testid="input"
           readOnly
           onClick={() => {
             setWritingMode(!writingMode);

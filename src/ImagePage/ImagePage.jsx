@@ -50,14 +50,14 @@ function ImagePage({ images }) {
   }
 
   return !image ? (
-    <div className="h-screen flex justify-center items-center"> Loading......</div>
+    <div className="h-screen flex justify-center items-center"> Loading...</div>
   ) : (
     <div>
       <Link to={'/'} className="absolute flex h-[46px] items-center pt-4 pl-4">
         Go Back
       </Link>
       {readingMode && (
-        <>
+        <div data-testid="reading-mode">
           <ImageReadingComments
             setReadingMode={setReadingMode}
             readingMode={readingMode}
@@ -69,11 +69,11 @@ function ImagePage({ images }) {
             setWritingMode={setWritingMode}
             writingMode={writingMode}
           ></ReadingComments>
-        </>
+        </div>
       )}
 
       {!readingMode && (
-        <div className="h-screen flex items-center justify-center ">
+        <div datatestid="image-card" className="h-screen flex items-center justify-center ">
           <ImageCard
             image={image}
             comments={comments}
@@ -84,16 +84,18 @@ function ImagePage({ images }) {
       )}
 
       {writingMode && (
-        <WritingComments
-          commentsContainerRef={commentsContainerRef}
-          closeComments={closeComments}
-          comment={comment}
-          comments={comments}
-          handleEnterKey={handleEnterKey}
-          handleInputComment={handleInputComment}
-          handleSubmitComment={handleSubmitComment}
-          handleX={handleX}
-        ></WritingComments>
+        <div data-testid="writing-mode">
+          <WritingComments
+            commentsContainerRef={commentsContainerRef}
+            closeComments={closeComments}
+            comment={comment}
+            comments={comments}
+            handleEnterKey={handleEnterKey}
+            handleInputComment={handleInputComment}
+            handleSubmitComment={handleSubmitComment}
+            handleX={handleX}
+          ></WritingComments>
+        </div>
       )}
     </div>
   );

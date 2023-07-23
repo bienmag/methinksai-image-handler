@@ -15,6 +15,7 @@ export const ImageCard = ({ image, comments, setReadingMode, readingMode }) => {
         </div>
         <div className="flex justify-end">
           <div
+            data-testid="comment-button"
             className="items-center flex justify-between px-8 mt-4 text-xs bg-myborder w-28 py-2  rounded-full border border-my2 hover:bg-my2 "
             onClick={() => {
               setReadingMode(!readingMode);
