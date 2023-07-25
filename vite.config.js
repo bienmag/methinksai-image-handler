@@ -4,6 +4,6 @@ import tailwindcss from 'tailwindcss';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/methinksai-image-handler',
+  base: '/',
   plugins: [react(), tailwindcss()],
 });
