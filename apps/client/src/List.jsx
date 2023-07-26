@@ -18,6 +18,7 @@ function ListItem({ image }) {
               stroke="currentColor"
               className="w-6 h-6"
             >
+              <title>clip icon</title>
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
