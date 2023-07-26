@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { DBComment } from '../lib/mongo.js';
+import { io } from '../app.js';
 
 class Comment {
   constructor(_id, text, time, imageId) {
@@ -10,7 +11,8 @@ class Comment {
   }
   static async create(text, time, imageId) {
     const _id = new ObjectId();
-    await DBComment.create({ _id, text, time, imageId });
+    const newComment = await DBComment.create({ _id, text, time, imageId });
+    io.emit('new comment', newComment);
     return new Comment(_id, text, time, imageId);
   }
 
