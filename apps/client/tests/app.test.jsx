@@ -22,7 +22,7 @@ describe('App', () => {
       </MemoryRouter>
     );
 
-    const moonIcon = screen.getByAltText('moon icon to change theme');
+    const moonIcon = screen.getByTitle('moon icon');
 
     expect(document.documentElement.getAttribute('data-theme')).toBe('light');
 
@@ -34,7 +34,7 @@ describe('App', () => {
       expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
     });
 
-    const sunIcon = screen.getByAltText('sun icon to change theme');
+    const sunIcon = screen.getByTitle('sun icon');
 
     act(() => {
       userEvent.click(sunIcon);
