@@ -8,7 +8,6 @@ export const LaptopView = ({
   handleInputComment,
   handleSubmitComment,
   commentsContainerRef,
-  handleX,
   comment,
 }) => {
   return (
@@ -50,15 +49,12 @@ export const LaptopView = ({
             <></>
           )}
         </div>
-        <div className="flex justify-between px-4 h-12 absolute top-0">
+        <div className="flex px-4 h-[48px] absolute top-0 pt-4">
           {comments.length === 1 ? (
-            <p className="flex items-center">{comments.length} comment</p>
+            <p className="flex items-center ">{comments.length} comment</p>
           ) : (
-            <p className="flex items-center">{comments.length} comments</p>
+            <p className="flex items-center ">{comments.length} comments</p>
           )}
-          <button className="flex items-center" onClick={handleX}>
-            x
-          </button>
         </div>
       </div>{' '}
     </div>

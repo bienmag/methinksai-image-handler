@@ -94,6 +94,7 @@ function ImagePage({ images }) {
       <Link to={'/'} className="absolute flex h-[46px] items-center pt-4 pl-4">
         Go Back
       </Link>
+
       <div className="h-screen flex items-center justify-center">
         <LatptopView
           image={image}
