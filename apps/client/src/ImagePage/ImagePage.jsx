@@ -30,12 +30,24 @@ function ImagePage({ images }) {
         time: createdAt,
       })
       .then(() => {
-        setComments('');
+        setComment('');
       })
       .catch((e) => {
         alert(e.response.data.error);
       });
   }
+
+  useEffect(() => {
+    async function getCommentsFromDB() {
+      try {
+        const response = await axios.get(`http://localhost:8080/image/${id}`);
+        setComments(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    getCommentsFromDB();
+  }, []);
 
   function handleInputComment(e) {
     e.preventDefault();
