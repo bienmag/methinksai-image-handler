@@ -14,7 +14,7 @@ const app = express();
 const myserver = http.createServer(app);
 export const io = new Server(myserver, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'https://methinksai-image-handler.vercel.app',
     methods: ['GET', 'POST'],
   },
 });
