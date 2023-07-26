@@ -17,7 +17,7 @@ function ImagePage({ images }) {
   const image = images.find((item) => item.id == id);
 
   useEffect(() => {
-    const socket = io('http://localhost:8080');
+    const socket = io('https://goldfish-app-ofd38.ondigitalocean.app/');
     socket.on('new comment', (newComment) => {
       setComments((prevComments) => [...prevComments, newComment]);
     });
@@ -34,7 +34,7 @@ function ImagePage({ images }) {
     const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
 
     await axios
-      .post(`http://localhost:8080/image/${id}`, {
+      .post(`https://goldfish-app-ofd38.ondigitalocean.app/image/${id}`, {
         text: comment,
         time: createdAt,
       })
@@ -49,7 +49,9 @@ function ImagePage({ images }) {
   useEffect(() => {
     async function getCommentsFromDB() {
       try {
-        const response = await axios.get(`http://localhost:8080/image/${id}`);
+        const response = await axios.get(
+          `https://goldfish-app-ofd38.ondigitalocean.app/image/${id}`
+        );
         setComments(response.data);
       } catch (e) {
         console.log(e);
