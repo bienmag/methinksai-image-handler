@@ -11,6 +11,16 @@ const CommentsController = {
       next(e);
     }
   },
+
+  async getComments(req, res, next) {
+    try {
+      const imageId = req.params;
+      const comments = await Comment.getAll(imageId);
+      res.status(201).json(comments);
+    } catch (e) {
+      next(e);
+    }
+  },
 };
 
 export default CommentsController;
