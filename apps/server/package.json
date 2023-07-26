@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "build": "yarn"
+    "build": "yarn",
+    "start": "nodemon src/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
