@@ -19,7 +19,7 @@ function ImagePage({ images }) {
   useEffect(() => {
     const socket = io('http://localhost:8080');
     socket.on('new comment', (newComment) => {
-      setComments([...comments, newComment]);
+      setComments((prevComments) => [...prevComments, newComment]);
     });
     return () => socket.disconnect();
   }, [id]);
