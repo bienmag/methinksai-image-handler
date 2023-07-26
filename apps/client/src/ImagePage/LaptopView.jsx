@@ -23,11 +23,7 @@ export const LaptopView = ({
           </div>
         </div>
       </div>
-      <div className="border rounded-xl border-myinputborder flex flex-col-reverse  bg-my1  h-full pb-2  ">
-        {/* <div
-          onKeyDown={closeComments}
-          className="border rounded-xl border-myinputborder flex flex-col-reverse bg-my1  w-full h-screen absolute bottom-0 pb-2 "
-        > */}
+      <div className="border overflow-auto rounded-xl border-myinputborder flex flex-col-reverse  bg-my1  max-h-screen pb-2  ">
         <div className="flex justify-center my-2 px-2 ">
           <input
             autoFocus
