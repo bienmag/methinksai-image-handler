@@ -5,6 +5,8 @@ import { ImageCard } from './ImageCard';
 import axios from 'axios';
 import moment from 'moment';
 import { io } from 'socket.io-client';
+import { useViewport } from '../utils/viewport';
+import LatptopView from './LaptopView';
 
 function ImagePage({ images }) {
   const { id } = useParams();
@@ -15,6 +17,8 @@ function ImagePage({ images }) {
   const commentsContainerRef = useRef(null);
 
   const image = images.find((item) => item.id == id);
+  const { width } = useViewport();
+  const breakpoint = 1280;
 
   useEffect(() => {
     const socket = io('https://goldfish-app-ofd38.ondigitalocean.app/');
@@ -85,6 +89,28 @@ function ImagePage({ images }) {
 
   return !image ? (
     <div className="h-screen flex justify-center items-center"> Loading...</div>
+  ) : width > breakpoint ? (
+    <>
+      <Link to={'/'} className="absolute flex h-[46px] items-center pt-4 pl-4">
+        Go Back
+      </Link>
+      <div className="h-screen flex items-center justify-center">
+        <LatptopView
+          image={image}
+          comments={comments}
+          setReadingMode={setReadingMode}
+          readingMode={readingMode}
+          writingMode={writingMode}
+          setWritingMode={setWritingMode}
+          comment={comment}
+          closeComments={closeComments}
+          handleEnterKey={handleEnterKey}
+          handleInputComment={handleInputComment}
+          handleSubmitComment={handleSubmitComment}
+          commentsContainerRef={commentsContainerRef}
+        ></LatptopView>
+      </div>
+    </>
   ) : (
     <div>
       <Link to={'/'} className="absolute flex h-[46px] items-center pt-4 pl-4">

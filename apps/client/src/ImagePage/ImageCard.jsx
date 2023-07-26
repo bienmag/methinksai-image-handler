@@ -1,10 +1,8 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../utils/context';
-import { useViewport } from '../utils/viewport';
 
 export const ImageCard = ({ image, comments, setReadingMode, readingMode }) => {
   const theme = useContext(ThemeContext);
-  const { width } = useViewport();
 
   return (
     <div className=" flex flex-col max-w-full items-center px-4">
