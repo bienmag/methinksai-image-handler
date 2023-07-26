@@ -2,14 +2,17 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import router from './router.js'
 dotenv.config()
 
 const MONGODB_URL = process.env.MONGODB_URL
 const MONGODB_DB = process.env.MONGODB_DB
 
 const app = express()
-app.use(cors())
 app.use(express.json())
+app.use(cors())
+app.use(router)
+
 
 export function startServer() {
   const port = 8080
