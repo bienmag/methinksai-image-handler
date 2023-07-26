@@ -4,6 +4,7 @@ import { WritingComments, ReadingComments, ImageReadingComments } from './Commen
 import { ImageCard } from './ImageCard';
 import axios from 'axios';
 import moment from 'moment';
+import { io } from 'socket.io-client';
 
 function ImagePage({ images }) {
   const { id } = useParams();
@@ -14,6 +15,14 @@ function ImagePage({ images }) {
   const commentsContainerRef = useRef(null);
 
   const image = images.find((item) => item.id == id);
+
+  useEffect(() => {
+    const socket = io('http://localhost:8080');
+    socket.on('new comment', (newComment) => {
+      setComments([...comments, newComment]);
+    });
+    return () => socket.disconnect();
+  }, [id]);
 
   useEffect(() => {
     if (commentsContainerRef.current) {
