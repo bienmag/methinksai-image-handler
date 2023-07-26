@@ -40,7 +40,7 @@ export function startServer() {
       });
     })
     .catch((error) => console.error(error));
-  const server = app.listen(port, () => console.log(`Listening on port ${port}`));
+  const server = myserver.listen(port, () => console.log(`Listening on port ${port}`));
   process.on('SIGTERM', () => {
     server.close();
   });
