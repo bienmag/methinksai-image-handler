@@ -50,7 +50,7 @@ export const LaptopView = ({
             <></>
           )}
         </div>
-        <div className="flex justify-between  w-screen px-4 h-12 absolute top-0">
+        <div className="flex justify-between px-4 h-12 absolute top-0">
           {comments.length === 1 ? (
             <p className="flex items-center">{comments.length} comment</p>
           ) : (
