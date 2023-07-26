@@ -1,5 +1,5 @@
 {
-  "private":true,
+  "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -11,5 +11,6 @@
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
-    "apps/*"]
+    "apps/*"
+  ]
 }

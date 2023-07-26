@@ -1,8 +1,8 @@
-import express from 'express'
-import CommentsController from './Controllers/Comments.controller.js'
+import express from 'express';
+import CommentsController from './Controllers/Comments.controller.js';
 
-const router = express.Router()
+const router = express.Router();
 
-router.post('/image/:imageId', CommentsController.createComment)
+router.post('/image/:imageId', CommentsController.createComment);
 
-export default router
+export default router;

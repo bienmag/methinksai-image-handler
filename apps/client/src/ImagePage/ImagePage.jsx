@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { WritingComments, ReadingComments, ImageReadingComments } from './CommentsStates';
 import { ImageCard } from './ImageCard';
-import axios from 'axios'
-import moment from 'moment'
+import axios from 'axios';
+import moment from 'moment';
 
 function ImagePage({ images }) {
   const { id } = useParams();
@@ -12,7 +12,6 @@ function ImagePage({ images }) {
   const [readingMode, setReadingMode] = useState(false);
   const [writingMode, setWritingMode] = useState(false);
   const commentsContainerRef = useRef(null);
-  
 
   const image = images.find((item) => item.id == id);
 
@@ -23,17 +22,19 @@ function ImagePage({ images }) {
   }, [comments]);
 
   async function handleSubmitComment() {
+    const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
 
-const createdAt = moment().format('MMMM Do YYYY, h:mm:ss a');
-
-await axios. post(`http://localhost:8080/image/${id}`, {
-  text: comment,
-  time: createdAt
-}).then(()=> {
-  setComments('')
-}).catch((e) => {
-  alert(e.response.data.error)
-})
+    await axios
+      .post(`http://localhost:8080/image/${id}`, {
+        text: comment,
+        time: createdAt,
+      })
+      .then(() => {
+        setComments('');
+      })
+      .catch((e) => {
+        alert(e.response.data.error);
+      });
   }
 
   function handleInputComment(e) {
