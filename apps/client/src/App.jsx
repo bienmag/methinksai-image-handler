@@ -5,6 +5,8 @@ import List from './List';
 import { Routes, Route } from 'react-router-dom';
 import ImagePage from './ImagePage/ImagePage';
 import { ThemeContext } from './utils/context';
+import CornerstoneViewer from './utils/cornerstone-viewer';
+
 function App() {
   const [images, setImages] = useState([]);
   const [mode, setMode] = useState('light');
@@ -68,6 +70,7 @@ function App() {
         )}
       </div>
       <Routes>
+        <Route path="dicom" element={<CornerstoneViewer></CornerstoneViewer>}></Route>
         <Route path="/" element={<List images={images} />}></Route>
         <Route path="image/:id" element={<ImagePage images={images} />}></Route>
       </Routes>
