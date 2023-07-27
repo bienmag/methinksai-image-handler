@@ -12,7 +12,7 @@ cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
 cornerstoneTools.external.cornerstone = cornerstone;
 cornerstoneTools.external.Hammer = Hammer;
 
-const CornerstoneViewer = () => {
+const CornerstoneViewer = ({id}) => {
   cornerstoneTools.init({
     globalToolSyncEnabled: true,
   });
@@ -46,7 +46,7 @@ const CornerstoneViewer = () => {
     });
 
     const serverUrl = 'https://goldfish-app-ofd38.ondigitalocean.app';
-    const imageId = `wadouri:${serverUrl}/dicom/vhm.1164.dcm`;
+    const imageId = `wadouri:${serverUrl}/dicom/${id}`;
     cornerstone.loadImage(imageId).then((image) => {
       cornerstone.displayImage(canvas, image);
     });

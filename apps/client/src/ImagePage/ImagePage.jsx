@@ -14,11 +14,20 @@ function ImagePage({ images }) {
   const [comments, setComments] = useState([]);
   const [readingMode, setReadingMode] = useState(false);
   const [writingMode, setWritingMode] = useState(false);
+  const [dicomImage, setDicomImage] =useState(false)
   const commentsContainerRef = useRef(null);
 
   const image = images.find((item) => item.id == id);
   const { width } = useViewport();
   const breakpoint = 1280;
+  const isDicom = id.slice(0,3)
+
+  useEffect(() => {
+    if (isDicom === 'vhm') {
+      setDicomImage(true)
+    }
+  }, [id])
+  
 
   useEffect(() => {
     const socket = io('https://goldfish-app-ofd38.ondigitalocean.app/');
@@ -87,7 +96,7 @@ function ImagePage({ images }) {
     setWritingMode(!writingMode);
   }
 
-  return !image ? (
+  return !image && !isDicom ? (
     <div className="h-screen flex justify-center items-center"> Loading...</div>
   ) : width > breakpoint ? (
     <>
@@ -97,6 +106,8 @@ function ImagePage({ images }) {
 
       <div className="h-screen flex items-center justify-center">
         <LatptopView
+          id={id}
+          isDicom={isDicom}
           image={image}
           comments={comments}
           setReadingMode={setReadingMode}

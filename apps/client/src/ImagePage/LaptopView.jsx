@@ -1,4 +1,6 @@
 import { CommentsList } from './Comments';
+import CornerstoneViewer from '../utils/cornerstone-viewer'
+
 
 export const LaptopView = ({
   image,
@@ -9,10 +11,14 @@ export const LaptopView = ({
   handleSubmitComment,
   commentsContainerRef,
   comment,
+  id,
+  isDicom
 }) => {
   return (
     <div className="grid grid-cols-4  w-full ">
       <div className="col-span-3">
+        
+        {isDicom? <CornerstoneViewer id={id}></CornerstoneViewer>   :
         <div className=" flex flex-col max-w-full items-center px-4 h-screen justify-center ">
           <div className="flex flex-col  ">
             <div className="flex flex-col  mt-5 md:mt-4 lg:mt-4 max-w-[600px] items-center">
@@ -20,7 +26,9 @@ export const LaptopView = ({
               <img src={`${image.default_image.regular_url}`} alt="image of a tree"></img>
             </div>
           </div>
-        </div>
+        </div> }
+
+
       </div>
       <div className="border overflow-auto rounded-xl border-myinputborder flex flex-col-reverse  bg-my1  max-h-screen pb-2  ">
         <div className="flex justify-center my-2 px-2 ">
