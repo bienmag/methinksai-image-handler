@@ -55,7 +55,7 @@ const CornerstoneViewer = ({ id }) => {
   return (
     <div
       id="canvas"
-      className="flex w-96 h-96  md:w-[600px] md:h-[600px] lg:w-[600px] lg:h-[600px]"
+      className="flex justify-center h-64 w-64 md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] "
     ></div>
   );
 };

@@ -8,16 +8,16 @@ export const ImageCard = ({ image, comments, setReadingMode, readingMode, dicomI
   return (
     <div className=" flex flex-col max-w-full items-center px-4">
       <div className="flex flex-col  ">
-        <div className="flex flex-col  mt-5 md:mt-4 lg:mt-4 max-w-[600px] items-center">
-          {dicomImage ? (
-            <CornerstoneViewer id={id}></CornerstoneViewer>
-          ) : (
-            <>
+        {dicomImage ? (
+          <CornerstoneViewer id={id}></CornerstoneViewer>
+        ) : (
+          <>
+            <div className="flex flex-col mt-5 md:mt-4 lg:mt-4 max-w-[600px] items-center">
               <h1 className="text-2xl mb-5"> {image.common_name} </h1>
               <img src={`${image.default_image.regular_url}`} alt="image of a tree"></img>
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
 
         <div className="flex justify-end">
           <div
