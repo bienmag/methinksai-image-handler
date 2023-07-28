@@ -1,16 +1,24 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../utils/context';
+import CornerstoneViewer from '../utils/cornerstone-viewer';
 
-export const ImageCard = ({ image, comments, setReadingMode, readingMode }) => {
+export const ImageCard = ({ image, comments, setReadingMode, readingMode, dicomImage, id }) => {
   const theme = useContext(ThemeContext);
 
   return (
     <div className=" flex flex-col max-w-full items-center px-4">
       <div className="flex flex-col  ">
         <div className="flex flex-col  mt-5 md:mt-4 lg:mt-4 max-w-[600px] items-center">
-          <h1 className="text-2xl mb-5"> {image.common_name} </h1>
-          <img src={`${image.default_image.regular_url}`} alt="image of a tree"></img>
+          {dicomImage ? (
+            <CornerstoneViewer id={id}></CornerstoneViewer>
+          ) : (
+            <>
+              <h1 className="text-2xl mb-5"> {image.common_name} </h1>
+              <img src={`${image.default_image.regular_url}`} alt="image of a tree"></img>
+            </>
+          )}
         </div>
+
         <div className="flex justify-end">
           <div
             data-testid="comment-button"

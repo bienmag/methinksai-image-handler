@@ -12,7 +12,7 @@ cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
 cornerstoneTools.external.cornerstone = cornerstone;
 cornerstoneTools.external.Hammer = Hammer;
 
-const CornerstoneViewer = ({id}) => {
+const CornerstoneViewer = ({ id }) => {
   cornerstoneTools.init({
     globalToolSyncEnabled: true,
   });
@@ -53,9 +53,10 @@ const CornerstoneViewer = ({id}) => {
   }, []);
 
   return (
-    <div className="flex h-screen items-center flex-col justify-center">
-      <div id="canvas" className="flex " style={{ width: '80%', height: '500px' }}></div>
-    </div>
+    <div
+      id="canvas"
+      className="flex w-96 h-96  md:w-[600px] md:h-[600px] lg:w-[600px] lg:h-[600px]"
+    ></div>
   );
 };
 
